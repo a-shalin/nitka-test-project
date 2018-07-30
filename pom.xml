@@ -6,10 +6,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.cloudinfosys</groupId>
     <artifactId>tree-traversal</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>A custom project using myfaces</name>
-    <url>http://www.myorganization.org</url>
+    <name>Tree traversal test</name>
 
     <repositories>
         <repository>
@@ -29,9 +28,8 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>RELEASE</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -48,8 +46,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

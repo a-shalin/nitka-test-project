@@ -1,6 +1,6 @@
 package ru.cloudinfosys.test;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Tree {
@@ -23,7 +23,7 @@ public class Tree {
     }
 
     public static final void traverse(Tree tree, Visitor visitor) {
-        Queue<Tree> queue = new LinkedList<Tree>();
+        Queue<Tree> queue = new ArrayDeque<>();
         queue.add(tree);
 
         while (! queue.isEmpty()) {
