@@ -1,5 +1,6 @@
 package ru.cloudinfosys.test;
 
+/** Binary tree */
 public class Tree {
     private String name;
     private Tree left;
@@ -33,6 +34,7 @@ public class Tree {
         this.right = right;
     }
 
+    /** Calculate tree height */
     public static int getHeight(Tree tree) {
         return tree == null ? 0 : 1 + Math.max(getHeight(tree.getLeft()),
                 getHeight(tree.getRight()));
