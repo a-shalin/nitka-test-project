@@ -1,40 +1,49 @@
 package ru.cloudinfosys.test;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 public class Tree {
-    private char letter;
+    private String name;
     private Tree left;
     private Tree right;
 
-    public Tree(char letter, Tree left, Tree right) {
-        this.letter = letter;
+    public Tree(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Tree getLeft() {
+        return left;
+    }
+
+    public void setLeft(Tree left) {
         this.left = left;
+    }
+
+    public Tree getRight() {
+        return right;
+    }
+
+    public void setRight(Tree right) {
         this.right = right;
     }
 
-    public char getLetter() {
-        return letter;
+    public static int getHeight(Tree tree) {
+        return tree == null ? 0 : 1 + Math.max(getHeight(tree.getLeft()),
+                getHeight(tree.getRight()));
     }
 
-    public interface Visitor {
-        void visit(Tree tree);
-    }
-
-    public static final void traverse(Tree tree, Visitor visitor) {
-        Queue<Tree> queue = new ArrayDeque<>();
-        queue.add(tree);
-
-        while (! queue.isEmpty()) {
-            Tree current = queue.poll();
-            visitor.visit(current);
-            if (current.left != null) {
-                queue.add(current.left);
-            }
-            if (current.right != null) {
-                queue.add(current.right);
-            }
-        }
+    @Override
+    public String toString() {
+        return "Tree{" +
+                "name='" + name + '\'' +
+                (left != null ? ", left=" + left : "") +
+                (right != null ? ", right=" + right : "") +
+                '}';
     }
 }
