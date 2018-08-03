@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ListUtils {
     // I use copy of array for output because removing elements from original list
@@ -69,18 +70,10 @@ public class ListUtils {
         for (Integer i : list) {
             if (i == null) throw new IllegalArgumentException("list must not contain null values");
 
-            Integer value = countMap.get(i);
-            countMap.put(i, value == null ? 1 : value + 1);
+            countMap.put(i, countMap.getOrDefault(i, 0) + 1);
         }
 
-        List<Integer> resultList = new ArrayList<>();
-        for (Integer i : list) {
-            if (countMap.get(i) < dupCount) {
-                resultList.add(i);
-            }
-        }
-
-        return resultList;
+        return list.stream().filter(i -> countMap.get(i) < dupCount).collect(Collectors.toList());
     }
 
     /** Remove duplicates if there count more or equal dupCount */
@@ -91,5 +84,6 @@ public class ListUtils {
         list.clear();
         list.addAll(newList);
     }
+
 
 }

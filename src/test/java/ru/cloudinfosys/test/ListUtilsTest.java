@@ -15,6 +15,12 @@ public class ListUtilsTest {
         assertEquals(asList(2,2,1,1),
                 removeContinuousDuplicates(asList(1,1,1,1,1,2,2,3,3,3,1,1), 3));
 
+        assertEquals(asList(),
+                removeContinuousDuplicates(asList(1, 1, 1), 3));
+
+        assertEquals(asList(),
+                removeContinuousDuplicates(asList(), 3));
+
         assertEquals(asList(1,1),
                 removeContinuousDuplicates(asList(1,1,1,1,1,3,3,3,1,1), 3));
 
